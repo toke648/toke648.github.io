@@ -1,106 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>Hexo个人博客配置记录</title>
-      <link href="/2025/06/17/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
-      <url>/2025/06/17/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/</url>
-      
-        <content type="html"><![CDATA[<h2 id="Hexo-个人博客配置记录（GitHub-Pages-Butterfly-主题-Waline-评论-自动部署）"><a href="#Hexo-个人博客配置记录（GitHub-Pages-Butterfly-主题-Waline-评论-自动部署）" class="headerlink" title="Hexo 个人博客配置记录（GitHub Pages + Butterfly 主题 + Waline 评论 + 自动部署）"></a>Hexo 个人博客配置记录（GitHub Pages + Butterfly 主题 + Waline 评论 + 自动部署）</h2><hr><h3 id="一、项目初始化流程"><a href="#一、项目初始化流程" class="headerlink" title="一、项目初始化流程"></a>一、项目初始化流程</h3><h4 id="1-安装-Hexo（首次）"><a href="#1-安装-Hexo（首次）" class="headerlink" title="1. 安装 Hexo（首次）"></a>1. 安装 Hexo（首次）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure><h4 id="2-创建博客项目目录"><a href="#2-创建博客项目目录" class="headerlink" title="2. 创建博客项目目录"></a>2. 创建博客项目目录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init hexo-blog</span><br><span class="line"><span class="built_in">cd</span> hexo-blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure><h4 id="3-本地运行预览"><a href="#3-本地运行预览" class="headerlink" title="3. 本地运行预览"></a>3. 本地运行预览</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure><p>浏览器打开：<a href="http://localhost:4000/">http://localhost:4000</a></p><hr><h3 id="二、配置主题（Butterfly）"><a href="#二、配置主题（Butterfly）" class="headerlink" title="二、配置主题（Butterfly）"></a>二、配置主题（Butterfly）</h3><h4 id="1-下载-Butterfly"><a href="#1-下载-Butterfly" class="headerlink" title="1. 下载 Butterfly"></a>1. 下载 Butterfly</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly</span><br></pre></td></tr></table></figure><h4 id="2-修改配置文件-config-yml"><a href="#2-修改配置文件-config-yml" class="headerlink" title="2. 修改配置文件 _config.yml"></a>2. 修改配置文件 <code>_config.yml</code></h4><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">butterfly</span></span><br></pre></td></tr></table></figure><h4 id="3-安装依赖插件（如有）"><a href="#3-安装依赖插件（如有）" class="headerlink" title="3. 安装依赖插件（如有）"></a>3. 安装依赖插件（如有）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure><hr><h3 id="三、配置-Git-部署"><a href="#三、配置-Git-部署" class="headerlink" title="三、配置 Git 部署"></a>三、配置 Git 部署</h3><h4 id="1-config-yml-中增加部署设置"><a href="#1-config-yml-中增加部署设置" class="headerlink" title="1. _config.yml 中增加部署设置"></a>1. <code>_config.yml</code> 中增加部署设置</h4><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/你的用户名/你的仓库.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure><h4 id="2-安装部署插件"><a href="#2-安装部署插件" class="headerlink" title="2. 安装部署插件"></a>2. 安装部署插件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><hr><h3 id="四、文章写作与发布"><a href="#四、文章写作与发布" class="headerlink" title="四、文章写作与发布"></a>四、文章写作与发布</h3><h4 id="1-创建文章"><a href="#1-创建文章" class="headerlink" title="1. 创建文章"></a>1. 创建文章</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post <span class="string">&quot;文章标题&quot;</span></span><br></pre></td></tr></table></figure><p>然后编辑 <code>source/_posts/文章标题.md</code> 文件。</p><h4 id="2-设置分类与标签"><a href="#2-设置分类与标签" class="headerlink" title="2. 设置分类与标签"></a>2. 设置分类与标签</h4><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 我的文章</span><br><span class="line">date: 2025-06-17 00:00:00</span><br><span class="line">categories:</span><br><span class="line"><span class="bullet">  -</span> 技术</span><br><span class="line"><span class="bullet">  -</span> Hexo</span><br><span class="line"> tags:</span><br><span class="line"><span class="bullet">  -</span> Butterfly 主题</span><br><span class="line"><span class="section">  - Hexo</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure><h4 id="3-生成并部署"><a href="#3-生成并部署" class="headerlink" title="3. 生成并部署"></a>3. 生成并部署</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure><hr><h3 id="五、评论系统配置（Waline）"><a href="#五、评论系统配置（Waline）" class="headerlink" title="五、评论系统配置（Waline）"></a>五、评论系统配置（Waline）</h3><h4 id="1-部署-Waline-服务（使用-Vercel）"><a href="#1-部署-Waline-服务（使用-Vercel）" class="headerlink" title="1. 部署 Waline 服务（使用 Vercel）"></a>1. 部署 Waline 服务（使用 Vercel）</h4><ul><li>克隆：<a href="https://github.com/walinejs/waline">https://github.com/walinejs/waline</a></li><li>部署至 Vercel</li><li>设置环境变量（如 LEAN_ID, LEAN_KEY 等）  <code>这边需要注意下 必须要设置</code></li></ul><p><img src="/%5Cimages%5Cpasted-0.png%5C" alt="upload successful"></p><h4 id="2-修改-Butterfly-主题配置-config-butterfly-yml"><a href="#2-修改-Butterfly-主题配置-config-butterfly-yml" class="headerlink" title="2. 修改 Butterfly 主题配置 _config.butterfly.yml"></a>2. 修改 Butterfly 主题配置 <code>_config.butterfly.yml</code></h4><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">comment:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">Waline</span></span><br><span class="line">  <span class="attr">serverURL:</span> <span class="string">https://你的-waline.vercel.app</span></span><br><span class="line">  <span class="attr">pageview:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure><h4 id="3-若报错-Not-initialized-或-404"><a href="#3-若报错-Not-initialized-或-404" class="headerlink" title="3. 若报错 Not initialized 或 404"></a>3. 若报错 <code>Not initialized</code> 或 404</h4><ul><li>确保你设置好 LeanCloud 的应用</li><li>Waline 后台功能需要 admin 密钥或配置 LC 应用权限</li></ul><hr><h3 id="六、自动部署（可选）"><a href="#六、自动部署（可选）" class="headerlink" title="六、自动部署（可选）"></a>六、自动部署（可选）</h3><h4 id="1-使用-GitHub-Actions-自动部署-Hexo-到-GitHub-Pages"><a href="#1-使用-GitHub-Actions-自动部署-Hexo-到-GitHub-Pages" class="headerlink" title="1. 使用 GitHub Actions 自动部署 Hexo 到 GitHub Pages"></a>1. 使用 GitHub Actions 自动部署 Hexo 到 GitHub Pages</h4><ul><li>创建 <code>.github/workflows/deploy.yml</code></li><li>示例配置可见：<a href="https://github.com/marketplace/actions/deploy-hexo-blog-to-github-pages">https://github.com/marketplace/actions/deploy-hexo-blog-to-github-pages</a></li></ul><hr><h3 id="七、可视化管理（可选）"><a href="#七、可视化管理（可选）" class="headerlink" title="七、可视化管理（可选）"></a>七、可视化管理（可选）</h3><h4 id="1-使用-hexo-admin"><a href="#1-使用-hexo-admin" class="headerlink" title="1. 使用 hexo-admin"></a>1. 使用 <code>hexo-admin</code></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-admin --save</span><br></pre></td></tr></table></figure><p>运行：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure><p>然后打开 <code>http://localhost:4000/admin</code> 使用后台管理界面。</p><hr><h3 id="八、常用命令小结"><a href="#八、常用命令小结" class="headerlink" title="八、常用命令小结"></a>八、常用命令小结</h3><table><thead><tr><th>命令</th><th>功能</th></tr></thead><tbody><tr><td><code>hexo new post &quot;标题&quot;</code></td><td>新建文章</td></tr><tr><td><code>hexo g</code></td><td>生成静态文件</td></tr><tr><td><code>hexo s</code></td><td>本地启动服务预览</td></tr><tr><td><code>hexo d</code></td><td>部署到远程仓库</td></tr><tr><td><code>hexo clean</code></td><td>清除缓存和旧文件</td></tr></tbody></table><hr><h3 id="九、参考配置工具"><a href="#九、参考配置工具" class="headerlink" title="九、参考配置工具"></a>九、参考配置工具</h3><ul><li>本地写作：VSCode + Markdown 插件</li><li>实时预览：hexo s</li><li>自动化：GitHub Actions</li><li>评论：Waline</li><li>搜索：hexo-generator-searchdb</li><li>主题优化：Butterfly + 自定义配置</li></ul><hr><p>如需进一步可视化创作、Web 后台文章管理，可结合 Netlify CMS 或搭建更完整的 CMS 前端。</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 生活 </tag>
-            
-            <tag> 技术 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>测试</title>
-      <link href="/2025/06/17/test/"/>
-      <url>/2025/06/17/test/</url>
-      
-        <content type="html"><![CDATA[<p>这是一个测试</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 日常 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>search</title>
-      <link href="/2025/06/17/search/"/>
-      <url>/2025/06/17/search/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
+<search>
+  <entry>
+    <title>search</title>
+    <url>/2025/06/17/search/</url>
+    <content><![CDATA[]]></content>
       <categories>
-          
-          <category> 技术 </category>
-          
+        <category>技术</category>
       </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>My New Post</title>
-      <link href="/2025/06/16/My-New-Post/"/>
-      <url>/2025/06/16/My-New-Post/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
+  </entry>
+  <entry>
+    <title>My New Post</title>
+    <url>/2025/06/16/My-New-Post/</url>
+    <content><![CDATA[]]></content>
       <categories>
-          
-          <category> 技术 </category>
-          
+        <category>技术</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Hexo </tag>
-            
-            <tag> Butterfly 主题 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/2025/06/15/hello-world/"/>
-      <url>/2025/06/15/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Butterfly 主题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2025/06/15/hello-world/</url>
+    <content><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new post$ hexo new &quot;My New Post&quot;
+
+More info: Writing
+Run server$ hexo server
+
+More info: Server
+Generate static files$ hexo generate
+
+More info: Generating
+Deploy to remote sites$ hexo deploy
+
+More info: Deployment
+]]></content>
+  </entry>
+  <entry>
+    <title>测试</title>
+    <url>/2025/06/17/test/</url>
+    <content><![CDATA[这是一个测试
+]]></content>
+      <tags>
+        <tag>日常</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo个人博客配置记录</title>
+    <url>/2025/06/17/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[Hexo 个人博客配置记录（GitHub Pages + Butterfly 主题 + Waline 评论 + 自动部署）
+一、项目初始化流程1. 安装 Hexo（首次）npm install -g hexo-cli
+
+2. 创建博客项目目录hexo init hexo-blogcd hexo-blognpm install
+
+3. 本地运行预览hexo s
+
+浏览器打开：http://localhost:4000
+
+二、配置主题（Butterfly）1. 下载 Butterflygit clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly
+
+2. 修改配置文件 _config.ymltheme: butterfly
+
+3. 安装依赖插件（如有）npm install hexo-generator-searchdb --save
+
+
+三、配置 Git 部署1. _config.yml 中增加部署设置deploy:  type: git  repo: https://github.com/你的用户名/你的仓库.git  branch: main
+
+2. 安装部署插件npm install hexo-deployer-git --save
+
+
+四、文章写作与发布1. 创建文章hexo new post &quot;文章标题&quot;
+
+然后编辑 source/_posts/文章标题.md 文件。
+2. 设置分类与标签---title: 我的文章date: 2025-06-17 00:00:00categories:  - 技术  - Hexo tags:  - Butterfly 主题  - Hexo---
+
+3. 生成并部署hexo cleanhexo g -d
+
+
+五、评论系统配置（Waline）1. 部署 Waline 服务（使用 Vercel）
+克隆：https://github.com/walinejs/waline
+部署至 Vercel
+设置环境变量（如 LEAN_ID, LEAN_KEY 等）  这边需要注意下 必须要设置
+
+
+2. 修改 Butterfly 主题配置 _config.butterfly.ymlcomment:  type: Waline  serverURL: https://你的-waline.vercel.app  pageview: true
+
+3. 若报错 Not initialized 或 404
+确保你设置好 LeanCloud 的应用
+Waline 后台功能需要 admin 密钥或配置 LC 应用权限
+
+
+六、自动部署（可选）1. 使用 GitHub Actions 自动部署 Hexo 到 GitHub Pages
+创建 .github/workflows/deploy.yml
+示例配置可见：https://github.com/marketplace/actions/deploy-hexo-blog-to-github-pages
+
+
+七、可视化管理（可选）1. 使用 hexo-adminnpm install hexo-admin --save
+
+运行：
+hexo s
+
+然后打开 http://localhost:4000/admin 使用后台管理界面。
+
+八、常用命令小结
+
+
+命令
+功能
+
+
+
+hexo new post &quot;标题&quot;
+新建文章
+
+
+hexo g
+生成静态文件
+
+
+hexo s
+本地启动服务预览
+
+
+hexo d
+部署到远程仓库
+
+
+hexo clean
+清除缓存和旧文件
+
+
+
+九、参考配置工具
+本地写作：VSCode + Markdown 插件
+实时预览：hexo s
+自动化：GitHub Actions
+评论：Waline
+搜索：hexo-generator-searchdb
+主题优化：Butterfly + 自定义配置
+
+
+如需进一步可视化创作、Web 后台文章管理，可结合 Netlify CMS 或搭建更完整的 CMS 前端。
+]]></content>
+      <tags>
+        <tag>生活</tag>
+        <tag>技术</tag>
+      </tags>
+  </entry>
 </search>
