@@ -133,45 +133,6 @@ hexo clean
       </categories>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2025/06/15/hello-world/</url>
-    <content><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post$ hexo new &quot;My New Post&quot;
-
-More info: Writing
-Run server$ hexo server
-
-More info: Server
-Generate static files$ hexo generate
-
-More info: Generating
-Deploy to remote sites$ hexo deploy
-
-More info: Deployment
-]]></content>
-  </entry>
-  <entry>
-    <title>My New Post</title>
-    <url>/2025/06/16/My-New-Post/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Butterfly 主题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>测试</title>
-    <url>/2025/06/17/test/</url>
-    <content><![CDATA[这是一个测试
-]]></content>
-      <tags>
-        <tag>日常</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>关于2233看板娘的配置方法</title>
     <url>/2025/06/21/%E7%9C%8B%E6%9D%BF%E5%A8%98%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[关于 2233 看板娘的配置方法说实话，这个功能我也是折腾了很久才搞出来，过程比较曲折，代码中也有些 Bug，但是能跑起来就行，不影响效果，所以我就懒得修啦～ _(≧▽≦)&#x2F;
@@ -229,5 +190,44 @@ waifu-tips.json 中可以修改对话提示语，也可以换成你自己的模�
         <tag>看板娘</tag>
         <tag>2233</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>测试</title>
+    <url>/2025/06/17/test/</url>
+    <content><![CDATA[这是一个测试
+]]></content>
+      <tags>
+        <tag>日常</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>My New Post</title>
+    <url>/2025/06/16/My-New-Post/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Butterfly 主题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2025/06/15/hello-world/</url>
+    <content><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new post$ hexo new &quot;My New Post&quot;
+
+More info: Writing
+Run server$ hexo server
+
+More info: Server
+Generate static files$ hexo generate
+
+More info: Generating
+Deploy to remote sites$ hexo deploy
+
+More info: Deployment
+]]></content>
   </entry>
 </search>
