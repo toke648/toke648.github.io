@@ -1,0 +1,276 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>个人博客折腾记录 丝滑的Hexo工作流 | Tokepson的博客</title><meta name="author" content="Tokepson"><meta name="copyright" content="Tokepson"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="一次性搞定 Hexo 快速部署与本地预览前阵子折腾 Hexo 部署，有些小技巧记录下来，以后可以一键执行，不用每次手敲命令，也能减少出错概率。   一、添加 CNAME 实现自定义域名自动生效用 GitHub Pages 时，绑定自定义域名只需要在仓库里添加一个 CNAME 文件，里面写上你的域名，比如： 1yourdomain.com  步骤： 在 source&#x2F; 目录中创建文件 CNAME（无">
+<meta property="og:type" content="article">
+<meta property="og:title" content="个人博客折腾记录 丝滑的Hexo工作流">
+<meta property="og:url" content="https://toke648.github.io/2025/06/22/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%8A%98%E8%85%BE-%E4%B8%9D%E6%BB%91%E7%9A%84Hexo%E5%B7%A5%E4%BD%9C%E6%B5%81/index.html">
+<meta property="og:site_name" content="Tokepson的博客">
+<meta property="og:description" content="一次性搞定 Hexo 快速部署与本地预览前阵子折腾 Hexo 部署，有些小技巧记录下来，以后可以一键执行，不用每次手敲命令，也能减少出错概率。   一、添加 CNAME 实现自定义域名自动生效用 GitHub Pages 时，绑定自定义域名只需要在仓库里添加一个 CNAME 文件，里面写上你的域名，比如： 1yourdomain.com  步骤： 在 source&#x2F; 目录中创建文件 CNAME（无">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://toke648.github.io/imgs/b5cde4adf1f98b2cd72059be544fbf4.jpg">
+<meta property="article:published_time" content="2025-06-22T08:39:00.000Z">
+<meta property="article:modified_time" content="2025-06-22T08:56:07.499Z">
+<meta property="article:author" content="Tokepson">
+<meta property="article:tag" content="hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://toke648.github.io/imgs/b5cde4adf1f98b2cd72059be544fbf4.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "个人博客折腾记录 丝滑的Hexo工作流",
+  "url": "https://toke648.github.io/2025/06/22/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%8A%98%E8%85%BE-%E4%B8%9D%E6%BB%91%E7%9A%84Hexo%E5%B7%A5%E4%BD%9C%E6%B5%81/",
+  "image": "https://toke648.github.io/imgs/b5cde4adf1f98b2cd72059be544fbf4.jpg",
+  "datePublished": "2025-06-22T08:39:00.000Z",
+  "dateModified": "2025-06-22T08:56:07.499Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Tokepson",
+      "url": "https://github.com/toke648"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/bitbug_favicon.ico"><link rel="canonical" href="https://toke648.github.io/2025/06/22/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%8A%98%E8%85%BE-%E4%B8%9D%E6%BB%91%E7%9A%84Hexo%E5%B7%A5%E4%BD%9C%E6%B5%81/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const hour = new Date().getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (theme === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else theme === 'light' ? activateLightMode() : activateDarkMode()
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Tokepson","link":"链接: ","source":"来源: Tokepson的博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-right"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '个人博客折腾记录 丝滑的Hexo工作流',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/universe.css"><link rel="stylesheet" href="/css/card_newest.css"><link rel="stylesheet" href="/assets/waifu.min.css?v=1.4.2"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/141054658.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-about"></i><span> 关于</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/drawing/"><i class="fa-fw fas fa-paint-brush"></i><span> 绘画</span></a></li><li><a class="site-page child" href="/photography/"><i class="fa-fw fas fa-camera"></i><span> 摄影</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/share/"><i class="fa-fw fas fa-share"></i><span> 分享</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/imgs/b5cde4adf1f98b2cd72059be544fbf4.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Tokepson的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">个人博客折腾记录 丝滑的Hexo工作流</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-about"></i><span> 关于</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/drawing/"><i class="fa-fw fas fa-paint-brush"></i><span> 绘画</span></a></li><li><a class="site-page child" href="/photography/"><i class="fa-fw fas fa-camera"></i><span> 摄影</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/share/"><i class="fa-fw fas fa-share"></i><span> 分享</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">个人博客折腾记录 丝滑的Hexo工作流</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-06-22T08:39:00.000Z" title="发表于 2025-06-22 16:39:00">2025-06-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-06-22T08:56:07.499Z" title="更新于 2025-06-22 16:56:07">2025-06-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">689</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2025/06/22/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%8A%98%E8%85%BE-%E4%B8%9D%E6%BB%91%E7%9A%84Hexo%E5%B7%A5%E4%BD%9C%E6%B5%81/#post-comment"><span class="waline-comment-count" data-path="/2025/06/22/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%8A%98%E8%85%BE-%E4%B8%9D%E6%BB%91%E7%9A%84Hexo%E5%B7%A5%E4%BD%9C%E6%B5%81/"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;It has been&quot;,&quot;messageNext&quot;:&quot;days since the last update, the content of the article may be outdated.&quot;,&quot;postUpdate&quot;:&quot;2025-06-22 16:56:07&quot;}" hidden></div><h2 id="一次性搞定-Hexo-快速部署与本地预览"><a href="#一次性搞定-Hexo-快速部署与本地预览" class="headerlink" title="一次性搞定 Hexo 快速部署与本地预览"></a>一次性搞定 Hexo 快速部署与本地预览</h2><p>前阵子折腾 Hexo 部署，有些小技巧记录下来，以后可以一键执行，不用每次手敲命令，也能减少出错概率。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/%5Cimages%5Cpasted-6.png" alt="upload successful"></p>
+<hr>
+<h3 id="一、添加-CNAME-实现自定义域名自动生效"><a href="#一、添加-CNAME-实现自定义域名自动生效" class="headerlink" title="一、添加 CNAME 实现自定义域名自动生效"></a>一、添加 <code>CNAME</code> 实现自定义域名自动生效</h3><p>用 GitHub Pages 时，绑定自定义域名只需要<strong>在仓库里添加一个 <code>CNAME</code> 文件</strong>，里面写上你的域名，比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yourdomain.com</span><br></pre></td></tr></table></figure>
+
+<h4 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h4><ol>
+<li>在 <code>source/</code> 目录中创建文件 <code>CNAME</code>（无扩展名），文件内容就是你的域名。</li>
+<li>每次执行 <code>hexo g</code> 时，这个文件会自动复制进 <code>public</code> 目录，部署也会自动一起推送，这样 GitHub Pages 就能识别到域名，不再需要手动去 GitHub 设置页面改域名。</li>
+</ol>
+<blockquote>
+<p>重点就是保证 <code>CNAME</code> 持续存在，这样以后再怎么部署也能自动生效啦。</p>
+</blockquote>
+<hr>
+<h3 id="二、一键执行部署和本地预览"><a href="#二、一键执行部署和本地预览" class="headerlink" title="二、一键执行部署和本地预览"></a>二、一键执行部署和本地预览</h3><p>为了方便，我给自己弄了两个简单的批处理脚本，双击就能执行对应任务，不用再一行一行敲命令。</p>
+<h4 id="push-bat（一键部署）："><a href="#push-bat（一键部署）：" class="headerlink" title="push.bat（一键部署）："></a><code>push.bat</code>（一键部署）：</h4><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">echo</span> 正在清理旧文件...</span><br><span class="line">hexo clean</span><br><span class="line"><span class="built_in">echo</span> 生成静态文件并部署...</span><br><span class="line">hexo g -d</span><br><span class="line"><span class="built_in">echo</span> 部署完成！</span><br><span class="line"><span class="built_in">pause</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="server-bat（本地预览）："><a href="#server-bat（本地预览）：" class="headerlink" title="server.bat（本地预览）："></a><code>server.bat</code>（本地预览）：</h4><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">echo</span> 正在清理旧文件...</span><br><span class="line">hexo clean</span><br><span class="line"><span class="built_in">echo</span> 生成静态文件...</span><br><span class="line">hexo g</span><br><span class="line"><span class="built_in">echo</span> 启动本地服务器...</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>把这两个文件放在 Hexo 根目录，然后<strong>右键发送到桌面→快捷方式</strong>，就能一键启动。</p>
+<ul>
+<li>需要的话还可以加个hexo图标</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/%5Cimages%5Cpasted-7.png" alt="upload successful"></p>
+<ul>
+<li>转换成ico格式，然后在属性的图标设置中更改，完美</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images%5Cpasted-11.png" alt="upload successful"></p>
+<hr>
+<h3 id="三、可视化的博文管理：Hexo-admin"><a href="#三、可视化的博文管理：Hexo-admin" class="headerlink" title="三、可视化的博文管理：Hexo-admin"></a>三、可视化的博文管理：Hexo-admin</h3><p>用习惯 Markdown，但是偶尔也想在浏览器里写？试试看 <a target="_blank" rel="noopener" href="https://github.com/jaredly/hexo-admin">hexo-admin</a>！只需：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-admin --save</span><br></pre></td></tr></table></figure>
+
+<p>然后 <code>hexo s</code> 启动本地服务器，打开：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:4000/admin</span><br></pre></td></tr></table></figure>
+
+<p>就能用图形界面写博客啦，还能管理草稿。</p>
+<hr>
+<h3 id="四、网站统计：Umami-Cloud"><a href="#四、网站统计：Umami-Cloud" class="headerlink" title="四、网站统计：Umami Cloud"></a>四、网站统计：Umami Cloud</h3><p>最后再说个统计工具 <a target="_blank" rel="noopener" href="https://umami.is/">Umami</a>，完全免费，也能自己部署，集成也很简单：</p>
+<ol>
+<li>在官网注册账号，添加你的网站。</li>
+<li>把提供的 JS 统计脚本放进主题模板中，比如：</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">defer</span> <span class="attr">data-website-id</span>=<span class="string">&quot;your-umami-id&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://your-umami-url/script.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>重新部署就能开始记录访客数据啦！后台可视化一目了然，数据隐私也有保障。</p>
+<hr>
+<h3 id="五、小结"><a href="#五、小结" class="headerlink" title="五、小结"></a>五、小结</h3><p>这样一套流程：</p>
+<ul>
+<li><strong>CNAME 自动生效</strong>避免老是重设域名。</li>
+<li><strong>批处理一键部署</strong>减少操作成本。</li>
+<li><strong>hexo-admin</strong>让写文更轻松。</li>
+<li><strong>Umami 统计</strong>帮你直观掌握站点动态。</li>
+</ul>
+<p>感觉把工具链弄顺畅，写博客也能更专注享受啦！<br>你也试试看吧，有问题可以留言给我~ 🎉</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/toke648">Tokepson</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://toke648.github.io/2025/06/22/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%8A%98%E8%85%BE-%E4%B8%9D%E6%BB%91%E7%9A%84Hexo%E5%B7%A5%E4%BD%9C%E6%B5%81/">https://toke648.github.io/2025/06/22/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%8A%98%E8%85%BE-%E4%B8%9D%E6%BB%91%E7%9A%84Hexo%E5%B7%A5%E4%BD%9C%E6%B5%81/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/40.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://toke648.github.io" target="_blank">Tokepson的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/hexo/">hexo</a></div><div class="post-share"><div class="social-share" data-image="/imgs/b5cde4adf1f98b2cd72059be544fbf4.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/06/21/%E7%9C%8B%E6%9D%BF%E5%A8%98%E9%85%8D%E7%BD%AE/" title="个人博客折腾记录 关于2233看板娘的配置方法"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/imgs/840b9d0323ba97285e70144667b7c47.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">个人博客折腾记录 关于2233看板娘的配置方法</div></div><div class="info-2"><div class="info-item-1">关于 2233 看板娘的配置方法说实话，这个功能我也是折腾了很久才搞出来，过程比较曲折，代码中也有些 Bug，但是能跑起来就行，不影响效果，所以我就懒得修啦～ _(≧▽≦)&#x2F; 参考来源：详细可参考这位大佬的博客：网页添加 Live2D 看板娘最早出处的链接现在大部分都打不开了，这篇比较新也比较全。  下载项目我用的是 GitHub 上 fghrsh 大佬维护的 Live2D 看板娘 Demo，地址是：https://github.com/fghrsh/live2d_demo 你可以直接访问上面链接下载，也可以用下面的命令克隆下来： 1git clone https://github.com/fghrsh/live2d_demo.git   目录结构简介克隆下来之后大致长这样： 12345678910111213│  demo1-default.html       // 基本 Demo│  demo2-autoload.html      // 自动加载 Demo│  demo3-waifu-tips.html    // 内置 waifu-tips 的...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/06/17/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/" title="个人博客折腾记录 Hexo个人博客配置记录"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/imgs/104649712_p0_master1200.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-17</div><div class="info-item-2">个人博客折腾记录 Hexo个人博客配置记录</div></div><div class="info-2"><div class="info-item-1">Hexo 个人博客配置记录（GitHub Pages + Butterfly 主题 + Waline 评论 + 自动部署） 备份备份，收藏栏都块满了，减轻减轻收藏夹压力 一、项目初始化流程1. 安装 Hexo（首次）1npm install -g hexo-cli  2. 创建博客项目目录123hexo init hexo-blogcd hexo-blognpm install  3. 本地运行预览1hexo s  浏览器打开：http://localhost:4000  二、配置主题（Butterfly）1. 下载 Butterfly1git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly  2. 修改配置文件 _config.yml1theme: butterfly  3. 安装依赖插件（如有）1npm install hexo-generator-searchdb --save   三、配置 Git 部署1. _config.yml...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/141054658.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Tokepson</div><div class="author-info-description">全栈开发者，二次元爱好者 喜欢编曲，绘画，写作，编程 以及任何与知识、学习、探索和创造有关的事物 人生就是一段寻找自我的过程。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://gannia.top/tokepson.github.io/"><i></i><span>前往小站...</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/toke648" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="https://space.bilibili.com/513658479?spm_id_from=333.1007.0.0" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #1DA1F2;"></i></a><a class="social-icon" href="https://qm.qq.com/cgi-bin/qm/qr?k=zTP63xznhGjcRF90zBXzDEhC8rExstIB" target="_blank" title="QQ"><i class="fab fa-qq" style="color: #1DA1F2;"></i></a><a class="social-icon" href="https://twitter.com/tokepson" target="_blank" title="Twitter"><i class="fab fa-twitter" style="color: #1DA1F2;"></i></a><a class="social-icon" href="mailto:tim16673802@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E6%AC%A1%E6%80%A7%E6%90%9E%E5%AE%9A-Hexo-%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E4%B8%8E%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88"><span class="toc-number">1.</span> <span class="toc-text">一次性搞定 Hexo 快速部署与本地预览</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%B7%BB%E5%8A%A0-CNAME-%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E8%87%AA%E5%8A%A8%E7%94%9F%E6%95%88"><span class="toc-number">1.1.</span> <span class="toc-text">一、添加 CNAME 实现自定义域名自动生效</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="toc-number">1.1.1.</span> <span class="toc-text">步骤：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%B8%80%E9%94%AE%E6%89%A7%E8%A1%8C%E9%83%A8%E7%BD%B2%E5%92%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88"><span class="toc-number">1.2.</span> <span class="toc-text">二、一键执行部署和本地预览</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#push-bat%EF%BC%88%E4%B8%80%E9%94%AE%E9%83%A8%E7%BD%B2%EF%BC%89%EF%BC%9A"><span class="toc-number">1.2.1.</span> <span class="toc-text">push.bat（一键部署）：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#server-bat%EF%BC%88%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%EF%BC%89%EF%BC%9A"><span class="toc-number">1.2.2.</span> <span class="toc-text">server.bat（本地预览）：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%8F%AF%E8%A7%86%E5%8C%96%E7%9A%84%E5%8D%9A%E6%96%87%E7%AE%A1%E7%90%86%EF%BC%9AHexo-admin"><span class="toc-number">1.3.</span> <span class="toc-text">三、可视化的博文管理：Hexo-admin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%BD%91%E7%AB%99%E7%BB%9F%E8%AE%A1%EF%BC%9AUmami-Cloud"><span class="toc-number">1.4.</span> <span class="toc-text">四、网站统计：Umami Cloud</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%B0%8F%E7%BB%93"><span class="toc-number">1.5.</span> <span class="toc-text">五、小结</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/06/22/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%8A%98%E8%85%BE-%E4%B8%9D%E6%BB%91%E7%9A%84Hexo%E5%B7%A5%E4%BD%9C%E6%B5%81/" title="个人博客折腾记录 丝滑的Hexo工作流"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/imgs/b5cde4adf1f98b2cd72059be544fbf4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="个人博客折腾记录 丝滑的Hexo工作流"/></a><div class="content"><a class="title" href="/2025/06/22/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%8A%98%E8%85%BE-%E4%B8%9D%E6%BB%91%E7%9A%84Hexo%E5%B7%A5%E4%BD%9C%E6%B5%81/" title="个人博客折腾记录 丝滑的Hexo工作流">个人博客折腾记录 丝滑的Hexo工作流</a><time datetime="2025-06-22T08:39:00.000Z" title="发表于 2025-06-22 16:39:00">2025-06-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/21/%E7%9C%8B%E6%9D%BF%E5%A8%98%E9%85%8D%E7%BD%AE/" title="个人博客折腾记录 关于2233看板娘的配置方法"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/imgs/840b9d0323ba97285e70144667b7c47.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="个人博客折腾记录 关于2233看板娘的配置方法"/></a><div class="content"><a class="title" href="/2025/06/21/%E7%9C%8B%E6%9D%BF%E5%A8%98%E9%85%8D%E7%BD%AE/" title="个人博客折腾记录 关于2233看板娘的配置方法">个人博客折腾记录 关于2233看板娘的配置方法</a><time datetime="2025-06-21T11:26:00.000Z" title="发表于 2025-06-21 19:26:00">2025-06-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/17/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/" title="个人博客折腾记录 Hexo个人博客配置记录"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/imgs/104649712_p0_master1200.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="个人博客折腾记录 Hexo个人博客配置记录"/></a><div class="content"><a class="title" href="/2025/06/17/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/" title="个人博客折腾记录 Hexo个人博客配置记录">个人博客折腾记录 Hexo个人博客配置记录</a><time datetime="2025-06-17T12:00:00.000Z" title="发表于 2025-06-17 20:00:00">2025-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/17/test/" title="测试"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/imgs/70066415_p2_master1200.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="测试"/></a><div class="content"><a class="title" href="/2025/06/17/test/" title="测试">测试</a><time datetime="2025-06-17T11:26:00.000Z" title="发表于 2025-06-17 19:26:00">2025-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/06/16/My-New-Post/" title="My New Post"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/imgs/110473958_p0_master1200.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="My New Post"/></a><div class="content"><a class="title" href="/2025/06/16/My-New-Post/" title="My New Post">My New Post</a><time datetime="2025-06-16T06:08:03.000Z" title="发表于 2025-06-16 14:08:03">2025-06-16</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/imgs/b5cde4adf1f98b2cd72059be544fbf4.jpg);"><div id="footer-wrap"><div class="copyright">&copy;Tue Jun 17 2025 08:00:00 GMT+0800 (中国标准时间) - 2025 By Tokepson</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = {"appId":"Ew1u2UpEFV40C3EaTSKSayJE-MdYXbMMI","appKey":"YTi1EwpiZHFuiCkybKBuCQV4"}
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
+      serverURL: 'https://waline-test-gray-mu.vercel.app',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      comment: true,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css')
+        .then(() => import('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
+
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
+
+  if ('Waline' === 'Waline' || !false) {
+    if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><!-- 看板娘 --><!-- waifu-tips.js 依赖 JQuery 库 --><script src="/assets/jquery.min.js?v=3.3.1"></script><!-- 实现拖动效果，需引入 JQuery UI --><script src="/assets/jquery-ui.min.js"></script><!-- 使用 aotuload.js 引入看板娘 --><script src="/assets/autoload.js?v=1.4.2"></script><script src="/assets/waifu-tips.js?v=1.4.2"></script><script src="/assets/live2d.js"></script><script type="text/javascript"> live2d_settings['modelId'] = 3; live2d_settings['modelTexturesId'] = 0; live2d_settings['modelStorage'] = true;         // 记录 ID (刷新后恢复)，可选 true(真), false(假) live2d_settings['modelRandMode'] = 'switch';     // 模型切换，可选 'rand'(随机), 'switch'(顺序) live2d_settings['modelTexturesRandMode'] = 'rand';       // 材质切换，可选 'rand'(随机), 'switch'(顺序) live2d_settings['waifuSize'] = '280x250';    // 看板娘大小，例如 '280x250', '600x535' live2d_settings['waifuEdgeSide'] = 'left:0';     // 看板娘贴边方向，例如 'left:0'(靠左 0px), 'right:30'(靠右 30px) live2d_settings['waifuDraggable'] = 'axis-x';    // 拖拽样式，例如 'disable'(禁用), 'axis-x'(只能水平拖拽), 'unlimited'(自由拖拽) live2d_settings['waifuDraggableRevert'] = true;         // 松开鼠标还原拖拽位置，可选 true(真), false(假)
+// 其他杂项设置 live2d_settings['l2dVersion'] = '1.4.2';        // 当前版本 live2d_settings['l2dVerDate'] = '2018.11.12'; // 版本更新日期 live2d_settings['homePageUrl'] = 'gannia.top';       // 主页地址，可选 'auto'(自动), '{URL 网址}' live2d_settings['aboutPageUrl'] = 'https://www.fghrsh.net/post/123.html';   // 关于页地址, '{URL 网址}'
+initModel("/assets/waifu-tips.json")</script><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="30" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="请输入搜索内容" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
