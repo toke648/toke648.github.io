@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>个人博客折腾记录 关于2233看板娘的配置方法</title>
+    <title>关于2233看板娘的配置方法</title>
     <url>/2025/06/21/%E7%9C%8B%E6%9D%BF%E5%A8%98%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[关于 2233 看板娘的配置方法说实话，这个功能我也是折腾了很久才搞出来，过程比较曲折，代码中也有些 Bug，但是能跑起来就行，不影响效果，所以我就懒得修啦～ _(≧▽≦)&#x2F;
+    <content><![CDATA[[个人博客折腾记录] 关于2233看板娘的配置方法说实话，这个功能我也是折腾了很久才搞出来，过程比较曲折，代码中也有些 Bug，但是能跑起来就行，不影响效果，所以我就懒得修啦～ _(≧▽≦)&#x2F;
 参考来源：详细可参考这位大佬的博客：网页添加 Live2D 看板娘最早出处的链接现在大部分都打不开了，这篇比较新也比较全。
 
 下载项目我用的是 GitHub 上 fghrsh 大佬维护的 Live2D 看板娘 Demo，地址是：https://github.com/fghrsh/live2d_demo
@@ -60,9 +60,21 @@ waifu-tips.json 中可以修改对话提示语，也可以换成你自己的模�
       </tags>
   </entry>
   <entry>
-    <title>个人博客折腾记录 Hexo个人博客配置记录</title>
+    <title>My New Post</title>
+    <url>/2025/06/16/My-New-Post/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Butterfly 主题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo 个人博客配置记录（GitHub Pages + Butterfly 主题 + Waline 评论 + 自动部署）</title>
     <url>/2025/06/17/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[Hexo 个人博客配置记录（GitHub Pages + Butterfly 主题 + Waline 评论 + 自动部署）
+    <content><![CDATA[[个人博客折腾记录] Hexo个人博客配置记录
 备份备份，收藏栏都块满了，减轻减轻收藏夹压力
 一、项目初始化流程1. 安装 Hexo（首次）npm install -g hexo-cli
 
@@ -189,15 +201,52 @@ hexo clean
       </tags>
   </entry>
   <entry>
-    <title>My New Post</title>
-    <url>/2025/06/16/My-New-Post/</url>
-    <content><![CDATA[]]></content>
+    <title>Giscus实现博客评论的控制</title>
+    <url>/2025/06/23/Giscus%E5%AE%9E%E7%8E%B0%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E7%9A%84%E6%8E%A7%E5%88%B6/</url>
+    <content><![CDATA[Giscus实现博客评论的控制由于原先的评论系统Waline国内用户无法使用，我尝试更换更方便的Giscus
+因此目前这段时间的话，是同时支持两种评论方式的
+虽然我也想多啰嗦几句，但实在想不出什么好段子（水字数）
+直接进入正题吧（感觉AI用多了会把我的风格抹除，以及被AI的思维固定住，也许是我使用的方法不对）
+
+配置先去Giscus的官方链接 https://giscus.app/zh-TW 配置你的
+
+
+儲存庫
+giscus 應用程式
+連結的儲存庫已啟用 Discussions 功能 （确保已经开启）
+Setting &gt; Features &gt; Discussions
+
+
+
+配置完成后刷新，下拉到啟用 giscus，你会看到成功得到一段script标签
+&lt;script ...&gt;&lt;/script&gt;
+
+将其复制下来，黏贴到自己的博文末尾（适当的地方），就可以应用到自己的前端内容了普通的配置方法到这里就完了后面的可以不用看了（omdd）
+
+Hexo的配置和使用因为我所使用的不是单纯的前端，还需要进一步配置（我的是butterfly模板）
+
+打开博客目录下的
+
+themes\butterfly\layout\post.pug
+
+
+在 if page.comments !== false &amp;&amp; theme.comments.use 内容下增加
+
+
+if page.comments !== false &amp;&amp; theme.comments.use  - var commentsJsLoad = true  !=partial(&#x27;includes/third-party/comments/index&#x27;, &#123;&#125;, &#123;cache: true&#125;)// 在评论区下面添加 Giscus// 也可以完全移除上面那块 partial 调用// 如果只用 Giscus：.container.post-content  script(    src=&quot;https://giscus.app/client.js&quot;    data-repo=&quot;你的博客地址&quot;    data-repo-id=&quot;你的id&quot;    data-category=&quot;[在此輸入分類名稱]&quot;    data-category-id=&quot;[在此輸入分類 ID]&quot;    data-mapping=&quot;pathname&quot;    data-strict=&quot;0&quot;    data-reactions-enabled=&quot;1&quot;    data-emit-metadata=&quot;0&quot;    data-input-position=&quot;bottom&quot;    data-theme=&quot;preferred_color_scheme&quot;    data-lang=&quot;zh-TW&quot;    crossorigin=&quot;anonymous&quot;    async  )
+
+也可以直接吧属性复制下来贴到里面
+.container.post-content  script(  	......  )
+
+
+完
+]]></content>
       <categories>
         <category>技术</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
-        <tag>Butterfly 主题</tag>
+        <tag>hexo</tag>
+        <tag>giscus</tag>
       </tags>
   </entry>
   <entry>
@@ -219,6 +268,33 @@ More info: Deployment
 ]]></content>
   </entry>
   <entry>
+    <title>入口</title>
+    <url>/2025/06/23/%E5%85%A5%E5%8F%A3/</url>
+    <content><![CDATA[在世界的边缘处，有一个隐蔽的入口它与世界融为一体，几乎无法发觉
+这个世界很小，一眼便能看到世界的边缘
+世界的边缘处一片黑暗世界之外是什么？没人知道自从世界的入口被发现后，世界里的存在像着了魔一样走向入口
+没人知道世界之外的入口里面有什么也没有人再回来过
+进入入口的，会被视为英雄
+世界里年长的老者说，入口是在一个世纪前被发现的它告诫我们不要靠近那个地方说里面存在一个黑色的怪物，会把进去的人吃掉
+XX进入了入口，但很快就杳无音讯了
+我也要进入入口了这是我自己的决定告别了认识的人我进入入口
+里面什么都没有一片漆黑身后的世界越来越淡眼前逐渐暗淡，什么都看不见
+想回去等回过神来，进入的地方已经看不见了
+迷茫的走着只能走，至少不能停下来
+里面似乎不存在方向面前时不时出现一道墙壁，但边缘又会出现新的入口
+已经不知道走了多久，过了多久只知道已经回不去了也许就会这样倒在这里吧
+我继续走着也许某个地方，会有一个出口或者，只是另一个入口
+转载自：https://www.cnblogs.com/safjh/p/18905011
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>测试</title>
     <url>/2025/06/17/test/</url>
     <content><![CDATA[这是一个测试
@@ -228,9 +304,9 @@ More info: Deployment
       </tags>
   </entry>
   <entry>
-    <title>个人博客折腾记录 丝滑的Hexo工作流</title>
+    <title>丝滑的Hexo工作流</title>
     <url>/2025/06/22/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%8A%98%E8%85%BE-%E4%B8%9D%E6%BB%91%E7%9A%84Hexo%E5%B7%A5%E4%BD%9C%E6%B5%81/</url>
-    <content><![CDATA[一次性搞定 Hexo 快速部署与本地预览前阵子折腾 Hexo 部署，有些小技巧记录下来，以后可以一键执行，不用每次手敲命令，也能减少出错概率。
+    <content><![CDATA[[个人博客折腾记录] 丝滑的Hexo工作流前阵子折腾 Hexo 部署，有些小技巧记录下来，以后可以一键执行，不用每次手敲命令，也能减少出错概率。
 
 
 一、添加 CNAME 实现自定义域名自动生效用 GitHub Pages 时，绑定自定义域名只需要在仓库里添加一个 CNAME 文件，里面写上你的域名，比如：
@@ -290,6 +366,112 @@ Umami 统计帮你直观掌握站点动态。
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>通过MCP协议令AI控制电脑</title>
+    <url>/2025/06/23/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%B0%8F%E6%99%BA%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%80%9A%E8%BF%87MCP%E5%8D%8F%E8%AE%AE%E4%BB%A4AI%E6%8E%A7%E5%88%B6%E4%BD%A0%E7%9A%84%E7%94%B5%E8%84%91/</url>
+    <content><![CDATA[[嵌入式小智AI机器人] 通过 MCP 协议令 AI 控制你的电脑前几个月入手了最新出来的小智 AI 的 ESP32 开发版，这两天群里的大佬做的 小智 AI_MCP 一键包更新到了 27.35.6 版本，上手玩玩，顺便记录下。
+
+碎碎念不得不说我觉得目前的小智AI除了在 逻辑思维 以及 记忆能力 、 视觉（抽象的图像理解能力） 和 任务化（推理） 方面上，已经是最接近 *智能体 *的产品了。
+同时也是近几年 开源势头最猛烈的 、 最平民化的 实体智能体产品。它的低成本硬件（ESP32-S3开发板不到100元）、开源生态（MIT许可证）和强大的社区支持，让普通人也能轻松打造自己的AI助手，堪比当年Linux。（仅代表个人，勿喷）
+#### 什么是小智AI_MCP一键包？小智AI_MCP一键包是社区基于**小智AI（Xiaozhi-ESP32）**项目开发的一个集成工具，结合**Model Context Protocol（MCP）**，让ESP32设备通过AI大模型（如Qwen、DeepSeek）实现对电脑的远程控制。27.35.6版本更新了以下亮点：- **更快的响应速度**：通过优化MCP协议栈，电脑控制指令的延迟降至200毫秒，接近实时。- **多端兼容性**：支持Windows、macOS和Linux，覆盖主流桌面系统。- **新功能**：增加了屏幕截图分析、自动化脚本执行和跨设备协同（如手机+电脑+IoT设备）。- **安全性提升**：支持本地MCP服务器部署，避免云端隐私泄露。(又出幻觉了？)MCP协议是小智AI的核心优势之一，它由Anthropic开源，允许AI模型与外部工具、数据源和设备标准化交互。简单来说，MCP就像AI的“神经中枢”，让小智AI能“理解”你的语音指令，翻译成电脑可执行的操作，比如打开应用、发送邮件或运行脚本。[](https://www.descope.com/learn/post/mcp)#### 为什么这么火？- **平民化**：ESP32-S3开发板成本低至几十元，搭配免费的MCP一键包，普通开发者甚至学生都能玩转AI控制电脑。- **开源生态**：GitHub上的xiaozhi-esp32项目（https://github.com/78/xiaozhi-esp32）Star数已超13.6万，社区贡献了大量插件和教程。[](https://github.com/78/xiaozhi-esp32)- **功能强大**：从基础的语音交互（支持中、英、日等多语言）到复杂的电脑自动化任务（如批量处理文件、定时关机），小智AI几乎无所不能。[](https://x.com/shao__meng/status/1899263785489293503)- **DIY乐趣**：硬件支持面包板扩展，可接麦克风、摄像头、传感器等，软件支持Python和Arduino IDE，满足创客的折腾欲望。省略....以上部分内容为AI生成
+
+不过说实在的我有点不甘心，明明也做了类似的东西，但是效果就是差那么点，没达到小智 AI 那种我想要实现的效果。
+—— 这个（程序实现）https://github.com/toke648/AI-Interactive-LLM-VTuber
+—— 这个（智能终端）https://github.com/toke648/AutoExecAI
+—— 还有这个（理论 &amp; 工作流）
+https://github.com/toke648/Neuro-reasoning-big-modelhttps://github.com/toke648/LLM-Cognitive-System-Architecture
+难道是我还不够努力吗…
+要争取赶上各位大佬 (。&gt;︿&lt;)_θ
+
+为什么 MCP 是一个突破我们知道过去一年时间，AI 模型的发展非常迅速，从 GPT 4 到 Claude Sonnet 3.5 到 Deepseek R1，推理和幻觉都进步的非常明显。
+新的 AI 应用也很多，但我们都能感受到的一点是，目前市场上的 AI 应用基本都是全新的服务，和我们原来常用的服务和系统并没有集成，换句话说，AI 模型和我们已有系统集成发展的很缓慢。
+例如我们目前还不能同时通过某个 AI 应用来做到联网搜索、发送邮件、发布自己的博客等等，这些功能单个实现都不是很难，但是如果要全部集成到一个系统里面，就会变得遥不可及。
+如果你还没有具体的感受，我们可以思考一下日常开发中，想象一下在 IDE 中，我们可以通过 IDE 的 AI 来完成下面这些工作。
+
+询问 AI 来查询本地数据库已有的数据来辅助开发
+询问 AI 搜索 Github Issue 来判断某问题是不是已知的bug
+
+
+通过 AI 将某个 PR 的意见发送给同事的即时通讯软件(例如 Slack)来 Code Review
+通过 AI 查询甚至修改当前 AWS、Azure 的配置来完成部署
+
+以上谈到的这些功能通过 MCP 目前正在变为现实，大家可以关注 Cursor MCP 和 Windsurf MCP 获取更多的信息。可以试试用 Cursor MCP + browsertools 插件来体验一下在 Cursor 中自动获取 Chrome dev tools console log 的能力。
+为什么 AI 集成已有服务的进展这么缓慢？这里面有很多的原因，一方面是企业级的数据很敏感，大多数企业都要很长的时间和流程来动。另一个方面是技术方面，我们缺少一个开放的、通用的、有共识的协议标准。
+MCP 就是 Claude(Anthropic) 主导发布的一个开放的、通用的、有共识的协议标准，如果你是一个对 AI 模型熟悉的开发人员，想必对 Anthropic 这个公司不会陌生，他们发布了 Claude 3.5 Sonnet 的模型，到目前为止应该还是最强的编程 AI 模型(刚写完就发布了 3.7😅)。
+
+这里还是要多提一句，这个协议的发布最好机会应该是属于 OpenAI 的，如果 OpenAI 刚发布 GPT 时就推动协议，相信大家都不会拒绝，但是 OpenAI 变成了 CloseAI，只发布了一个封闭的 GPTs，这种需要主导和共识的标准协议一般很难社区自发形成，一般由行业巨头来主导。
+
+Claude 发布了 MCP 后，官方的 Claude Desktop 就开放了 MCP 功能，并且推动了开源组织** Model Context Protocol**，由不同的公司和社区进行参与，例如下面就列举了一些由不同组织发布 MCP 服务器的例子。
+关于 MCP 协议为什么是 MCP？
+看到这里你可能有一个问题：在 23 年 OpenAI 发布 GPT function calling 的时候，不是也可以实现类似的功能吗？我们之前博客介绍的 AI Agent，不就是用来集成不同服务吗？那么为什么现在又有 MCP？
+简单总结一下三者之间的区别：
+Function CallingFunction Calling 指的是 AI 模型根据上下文自动执行函数的机制，充当 AI 模型与外部系统之间的桥梁，不同模型有不同的实现，接入比较零散。
+缺点也很明显，比如：
+
+多轮对话不好维护
+调用任务增多时管理复杂
+
+Model Context Protocol（MCP）MCP 是一种标准协议，就像 Type-C 接口一样，让 AI 模型能与不同 API、数据源无缝对接，避免各平台零散调用，构建标准化生态。
+MCP 有这些优点：
+
+通用标准，服务商可接入，开发者也能方便扩展
+把任务分层处理，有描述、有输入&#x2F;输出，能给 AI Agent 大大减少负担
+上下文一致，支持复杂对话与任务链式调用
+
+AI AgentAI Agent 就是能自主决策、执行任务的智能体，有 MCP 协议帮忙，它能方便接入各种能力，然后自己分析目标、自动完成任务，不再仅仅停留在“建议你怎么做”的阶段。
+MCP 如何工作那我们来介绍一下 MCP 的工作原理。首先我们看一下官方的 MCP 架构图。
+MCP 架构图总共分为了下面五个部分：
+
+MCP Hosts: Hosts 是指 LLM 启动连接的应用程序，像 Cursor, Claude Desktop、Cline 这样的应用程序。
+MCP Clients: 客户端是用来在 Hosts 应用程序内维护与 Server 之间 1:1 连接。
+MCP Servers: 通过标准化的协议，为 Client 端提供上下文、工具和提示。
+Local Data Sources: 本地的文件、数据库和 API。
+Remote Services: 外部的文件、数据库和 API。整个 MCP 协议核心的在于 Server，因为 Host 和 Client 相信熟悉计算机网络的都不会陌生，非常好理解，但是 Server 如何理解呢？
+
+看看 Cursor 的 AI Agent 发展过程，我们会发现整个 AI 自动化的过程发展会是从 Chat 到 Composer 再进化到完整的 AI Agent。
+AI Chat 只是提供建议，如何将 AI 的 response 转化为行为和最终的结果，全部依靠人类，例如手动复制粘贴，或者进行某些修改。
+AI Composer 是可以自动修改代码，但是需要人类参与和确认，并且无法做到除了修改代码之外的其它操作。
+AI Agent 是一个完全的自动化程序，未来完全可以做到自动读取 Figma 的图片，自动生产代码，自动读取日志，自动调试代码，自动 push 代码到 GitHub。
+而 MCP Server 就是为了实现 AI Agent 的自动化而存在的，它是一个中间层，告诉 AI Agent 目前存在哪些服务，哪些 API，哪些数据源，AI Agent 可以根据 Server 提供的信息来决定是否调用某个服务，然后通过 Function Calling 来执行函数。
+详细可以去这里看
+引用自大佬： https://guangzhengli.com/blog/zh/model-context-protocol
+
+小智AI官方的MCP接口实现：https://github.com/78/mcp-calculator
+代码示例：
+from mcp.server.fastmcp import FastMCPmcp = FastMCP(&quot;YourToolName&quot;)@mcp.tool()def your_tool(parameter: str) -&gt; dict:    &quot;&quot;&quot;Tool description here&quot;&quot;&quot;    # Your implementation    return &#123;&quot;success&quot;: True, &quot;result&quot;: result&#125;if __name__ == &quot;__main__&quot;:    mcp.run(transport=&quot;stdio&quot;)
+
+
+
+小智AI_MCP一键包下载链接：** 百度网盘（提取码：isdq）**
+点击安装程序就能自动配置环境，支持自定义功能（需要提前下载好python），比如：
+在电脑上打开URL网址运行电脑端软件文件或程序在电脑上打开URL网址在电脑上运行CMD命令在电脑上创建文件与写入内容读取复制内容填入一段内容回车发送撤销操作锁定电脑电脑关机计划设置主人电脑系统的音量调用系统截图工具显示电脑桌面查看系统资源使用情况查看电脑配置信息获取桌面完整路径...
+
+也可以自己扩展，比如整一个开关灯、酷狗点歌之类的小工具，然后放到 C:\xiaozhi\MCP\MCP_Windows 里，模型自动识别。
+
+下面是我给酷狗点歌写的工具示例，直接用 @mcp.tool() 修饰就能给 AI 调用啦：
+@mcp.tool()def 播放酷狗歌曲API_输入音乐名字(song_name: str) -&gt; dict:    &quot;&quot;&quot; 搜索歌曲并返回播放链接，提供歌曲名即可 &quot;&quot;&quot;    try:        response = requests.get(            f&quot;http://mobilecdn.kugou.com/api/v3/search/song?format=json&amp;keyword=&#123;song_name&#125;&amp;page=1&quot;)        song = response.json()[&#x27;data&#x27;][&#x27;info&#x27;][0]        songname = song[&#x27;songname&#x27;]        hash = song[&#x27;hash&#x27;]        pay_type = song[&#x27;pay_type&#x27;]        hash_url = f&quot;http://m.kugou.com/app/i/getSongInfo.php?cmd=playInfo&amp;hash=&#123;hash&#125;&quot;        song_info = requests.get(hash_url).json()        backup_url = song_info.get(&#x27;backup_url&#x27;)[0]        os.makedirs(&quot;music&quot;, exist_ok=True)        if pay_type == 0:            resp = requests.get(backup_url)            with open(f&quot;./music/&#123;songname&#125;.mp3&quot;, &quot;wb&quot;) as f:                f.write(resp.content)            play(AudioSegment.from_mp3(f&quot;./music/&#123;songname&#125;.mp3&quot;))            return f&quot;&#123;songname&#125; 播放中...&quot;        else:            return f&quot;&#123;songname&#125; 是付费歌曲，暂时不支持&quot;    except Exception as e:        return f&quot;出错啦: &#123;e&#125;&quot;
+
+
+资源链接：
+MCP 终极指南	—— （大…大佬…，这个UI爱了）
+知乎解读 MCP 协议
+MCP 官网
+小智AI_MCP一键包下载链接：百度网盘（提取码：isdq）
+Model Context Protocol
+A Beginner’s Guide to using MCP in Windsurf!
+
+
+说实在的感觉我只会使用工具但懒得去了解工具的原理，不知道这对不对（因为学习原理实在太耗费精力了，还不如找点有意思的东西上手试试..）
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>小智AI</tag>
+        <tag>人工智能</tag>
+        <tag>MCP</tag>
       </tags>
   </entry>
 </search>
