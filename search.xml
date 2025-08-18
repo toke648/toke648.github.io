@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>25/27闲聊 无聊中的仪式感</title>
+    <url>/2025/06/27/25-27%E9%9A%8F%E7%AC%94-%E6%97%A0%E8%81%8A%E4%B8%AD%E7%9A%84%E4%BB%AA%E5%BC%8F%E6%84%9F/</url>
+    <content><![CDATA[
+]]></content>
+      <categories>
+        <category>认知探索</category>
+      </categories>
+  </entry>
+  <entry>
     <title>关于2233看板娘的配置方法</title>
     <url>/2025/06/21/%E7%9C%8B%E6%9D%BF%E5%A8%98%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[[个人博客折腾记录] 关于2233看板娘的配置方法
@@ -64,23 +73,9 @@ waifu-tips.json 中可以修改对话提示语，也可以换成你自己的模�
       </tags>
   </entry>
   <entry>
-    <title>25/27闲聊 无聊中的仪式感</title>
-    <url>/2025/06/27/25-27%E9%9A%8F%E7%AC%94-%E6%97%A0%E8%81%8A%E4%B8%AD%E7%9A%84%E4%BB%AA%E5%BC%8F%E6%84%9F/</url>
+    <title>8/18 人工智能探讨</title>
+    <url>/2025/08/18/8-18-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%8E%A2%E8%AE%A8/</url>
     <content><![CDATA[
-]]></content>
-      <categories>
-        <category>认知探索</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>7/29 认知探索</title>
-    <url>/2025/07/29/7-29-%E8%AE%A4%E7%9F%A5%E6%8E%A2%E7%B4%A2/</url>
-    <content><![CDATA[没什么好说的。。。
-
-
-
-
-附录：
 ]]></content>
       <categories>
         <category>认知探索</category>
@@ -133,64 +128,6 @@ if page.comments !== false &amp;&amp; theme.comments.use  - var commentsJsLoad =
       <tags>
         <tag>hexo</tag>
         <tag>giscus</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>AI辅助实现的小型生态系统</title>
-    <url>/2025/06/29/AI%E8%BE%85%E5%8A%A9%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%B0%8F%E5%9E%8B%E7%94%9F%E6%80%81%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[AI辅助实现的小型生态系统
-设计：每个个体都有自己的行为逻辑，并不共享学习到的内容，但克隆体能够继承被克隆个体所学习到的经验，并且每个个体都有小概率获得突变出新的行为逻辑。克隆体，生成在被克隆体的旁边，并继承被克隆体的行为逻辑。
-
-
-阳光能量：0.05
-
-植物：高生命容易繁衍，但有捕食者的威胁（原定位是绿藻的）个体数量：200生命值：8消耗能量：-0.03获取能量：+0.05克隆能量：25克隆花费：20
-
-捕食者：不容易繁衍但是，高强度捕猎不到猎物容易死亡（留下了的基本都是生存能力强者）个体数量：10生命值：10消耗能量：-0.05捕猎能量：+1.0奖励能量：1克隆能量：30克隆花费：20
-
-我一开始很难想象，居然能有实现 实时训练+实时学习的方法
-
-
-
-
-如果是这样的化，那么我的另一个构想也是理论上能够实现的。。。
-一个通过输入噪声实现的 《生成式认知主体过程》我觉得这个问题能够解释 “我是从哪来的？”这个问题我认为 认知实际上是从“我”的主体上诞生的，所有输入都经过“我”这个主体，因此“我”诞生了
-
-
-
-
-详细的话，等后面的文章再详细阐述，通过思考了很多年我试图吧这些想法写成一篇具体的文章，因此做了一个关于“我的观点”的草稿。。。
-
-代码实现（复盘）俗话说的好（好吧，是我的经验而言）：想要真正的认识到、学习到知识，至少要亲身经历过。。。（代码是AI辅助实现的，我只是提出想法和改进方向，但实用性感觉不怎么样）
-
-定义环境
-
-# 平衡生态系统 v2（捕食者优化 + 感知扩展 + 克隆抑制）import pygameimport numpy as npimport torchimport torch.nn as nnimport torch.nn.functional as Fimport randomfrom copy import deepcopyWIDTH, HEIGHT = 700, 700 # 窗口大小N = 70 # 地图大小CELL_SIZE = WIDTH // Npygame.init() # 初始化pygamescreen = pygame.display.set_mode((WIDTH, HEIGHT))pygame.display.set_caption(&quot;Ecosystem&quot;)x, y = np.linspace(0, N - 1, N), np.linspace(0, N - 1, N) # 生成网格X, Y = np.meshgrid(x, y)cx, sigma, move_speed = N // 2, N / 5, 0.1MOVES = [[1, 0], [-1, 0], [0, 1], [0, -1]] # 移动方向device = torch.device(&#x27;cpu&#x27;) # 设备选择cpu/gpu
-
-
-初始化（定义模型）
-
-# 建立神经网络模型class PolicyNet(nn.Module): # 策略网络    &quot;&quot;&quot;    总的来说就是：输入是当前状态，输出是下一步的动作    分别输入四个动作up、down、left、right，然后通过神经网络进行预测，并返回概率(softmax)最大的动作。    这个神经网络模型的话，属于策略网络，用于预测下一个动作。    算是一个简单的神经网络，输入为4维向量，输出为4维向量，然后通过softmax进行概率归一化，返回概率最大的动作。    &quot;&quot;&quot;    def __init__(self):        super().__init__()        self.fc1 = nn.Linear(9, 32) # 输入9个特征，输出4个动作        self.fc2 = nn.Linear(32, 4) # 隐藏层32个神经元    def forward(self, x):        x = F.relu(self.fc1(x)) # 激活函数        return F.softmax(self.fc2(x), dim=-1) # 输出动作概率    # 创建代理（植物/捕食者）class Agent:    &quot;&quot;&quot;    代理类，继承自nn.Module    &quot;&quot;&quot;    def __init__(self, kind=&#x27;plant&#x27;, parent=None):        &quot;&quot;&quot;        代理初始化        kind: 代理类型        parent: 父代理        &quot;&quot;&quot;        self.kind = kind # 植物/捕食者        self.pos = [np.random.randint(N), np.random.randint(N)] # 随机位置        self.nutrition = 8.0 if kind == &#x27;plant&#x27; else 15.0 # 初始营养        self.alive = True # 代理是否存活        self.model = deepcopy(parent.model) if parent else PolicyNet().to(device) # 从父代理中复制模型，模型为自定义的策略网络模型，输入4个参数，输出4个动作概率        if parent: # 如果有父代理，则进行变异            self.mutate()        self.traj = []    # 代理的决策    def mutate(self):        with torch.no_grad(): # 禁用梯度计算            for param in self.model.parameters():                if random.random() &lt; 0.1: # 随机突变（表象为做出随机行为）                    param.add_(torch.randn_like(param) * 0.03) # 添加一个随机向量    # 代理状态    def get_state(self, agents, nutrition_field):        x, y = self.pos # 获取代理位置        vals = []        for dx in [-1, 0, 1]:            for dy in [-1, 0, 1]:                nx, ny = x + dx, y + dy                if 0 &lt;= nx &lt; N and 0 &lt;= ny &lt; N:                    if self.kind == &#x27;plant&#x27;:                        vals.append(nutrition_field[ny, nx])                    else:                        vals.append(sum(1 for a in agents if a.kind == &#x27;plant&#x27; and a.pos == [nx, ny]))                else:                    vals.append(0)        return torch.tensor(vals, dtype=torch.float32, device=device)        # 获取当前位置的周围格子的信息    def act(self, agents, nutrition_field):        &quot;&quot;&quot;        获取当前位置的周围格子的信息        :param agents: 当前位置的周围格子的信息        :param nutrition_field: 当前位置的周围格子的信息        :return: 当前位置的周围格子的信息        &quot;&quot;&quot;        state = self.get_state(agents, nutrition_field).unsqueeze(0) # 添加一个维度        probs = self.model(state).squeeze(0) # 去掉一个维度        dist = torch.distributions.Categorical(probs) # 创建概率分布        action = dist.sample()        log_prob = dist.log_prob(action)        dx, dy = MOVES[action.item()]        self.pos[0] = max(0, min(N - 1, self.pos[0] + dx))        self.pos[1] = max(0, min(N - 1, self.pos[1] + dy))        self.traj.append(tuple(self.pos))        if len(self.traj) &gt; 10:            self.traj.pop(0)        return log_prob# 网格颜色def field_color(value):    v = max(0, min(value / 10, 1))    return (int(255 * v), int(165 * v), int(255 * (1 - v)))# 获取周围营养def can_clone(agent, agents):    cx, cy = agent.pos # 当前位置    return sum(1 for a in agents if abs(a.pos[0] - cx) &lt;= 1 and abs(a.pos[1] - cy) &lt;= 1) &lt; 6# Agent类在这里被使用，用于创建Agent对象agents = [Agent(&#x27;plant&#x27;) for _ in range(200)] + [Agent(&#x27;predator&#x27;) for _ in range(10)] # 初始化 植物：200/捕食者：10clock = pygame.time.Clock() # 时钟MAX_AGENT = 400 # 最大数量running, steps = True, 0
-
-
-循环主体
-
-while running: # 运行    clock.tick(15)    steps += 1    for event in pygame.event.get(): # 获取事件        if event.type == pygame.QUIT: # 退出            running = False    cx = (cx + move_speed) % N # 捕食者移动    nutrition_field = np.exp(-((X - cx) ** 2 + (Y - cx) ** 2) / (2 * sigma ** 2)) * 10.0 # (辐射)营养源    if steps % 100 == 0: # 每100步        np_, pr_ = sum(a.kind == &#x27;plant&#x27; for a in agents), sum(a.kind == &#x27;predator&#x27; for a in agents) # 统计        print(f&quot;[Step &#123;steps&#125;] Plants: &#123;np_&#125;, Predators: &#123;pr_&#125;&quot;) # 输出    for i in range(N):        for j in range(N):            pygame.draw.rect(screen, field_color(nutrition_field[j, i]),                             pygame.Rect(i * CELL_SIZE, j * CELL_SIZE, CELL_SIZE, CELL_SIZE)) # 画背景    for agent in agents: # 遍历个体        if not agent.alive: # 如果个体已死亡，则跳过            continue        log_prob = agent.act(agents, nutrition_field) # 获取个体的决策概率        reward = 0 # 初始化奖励        if agent.kind == &#x27;plant&#x27;: # 如果是植物            agent.nutrition += nutrition_field[agent.pos[1], agent.pos[0]] * 0.05 # 植物获取的能量为0.05            agent.nutrition -= 0.03 # 植物消耗的能量        else:            agent.nutrition -= 0.03 # 捕食者消耗的能量            prey = next((a for a in agents if a.kind == &#x27;plant&#x27; and a.pos == agent.pos and a.alive), None) # 捕食者吃掉植物            if prey:                prey.alive = False # 植物死亡                agent.nutrition += 5.0 # 捕食者吃掉植物获得5.0点能量                reward += 1.0 # 捕食者吃掉植物奖励1.0分            else:                near = sum(1 for a in agents if a.kind == &#x27;plant&#x27; and abs(a.pos[0]-agent.pos[0])&lt;=2 and abs(a.pos[1]-agent.pos[1])&lt;=2) # 计算附近有多少只植物                reward += 0.1 * near # 捕食者附近的植物奖励0.1分        loss = -log_prob * reward # 计算损失        agent.model.zero_grad() # 清零梯度        loss.backward() # 反向传播        with torch.no_grad(): # 梯度更新            for param in agent.model.parameters(): # 遍历参数                param.data -= 1e-3 * param.grad # 更新参数        if agent.kind == &#x27;plant&#x27; and agent.nutrition &gt;= 25 and can_clone(agent, agents): # 如果是植物且 nutrition &gt;= 25 且可以克隆            agent.nutrition -= 20 # 克隆            agents.append(Agent(&#x27;plant&#x27;, parent=agent))        elif agent.kind == &#x27;predator&#x27; and agent.nutrition &gt;= 30 and can_clone(agent, agents): # 如果是猎物且 nutrition &gt;= 30 且可以克隆            agent.nutrition -= 20            agents.append(Agent(&#x27;predator&#x27;, parent=agent))        if agent.nutrition &lt;= 0: # 如果 nutrition &lt;= 0 则死亡            agent.alive = False    agents = [a for a in agents if a.alive] # 筛选存活的    if len(agents) &gt; MAX_AGENT: # 如果数量超过最大数量则        agents = sorted(agents, key=lambda a: a.nutrition, reverse=True)[:MAX_AGENT] # 按 nutrition 排序    for agent in agents: # 绘制        color = (0, 255, 0) if agent.kind == &#x27;plant&#x27; else (128, 0, 128) # 颜色        for pt in agent.traj:            pygame.draw.circle(screen, (200, 200, 200),                               (pt[0] * CELL_SIZE + CELL_SIZE // 2, pt[1] * CELL_SIZE + CELL_SIZE // 2), 2)        pygame.draw.circle(screen, color,                           (agent.pos[0] * CELL_SIZE + CELL_SIZE // 2, agent.pos[1] * CELL_SIZE + CELL_SIZE // 2),                           CELL_SIZE // 2)    pygame.display.flip() # 刷新屏幕pygame.quit() # 退出游戏
-
-
-运行展示
-不得不说，这个，这也太美了吧。。。难以置信，这些全部都是靠涌现出来的。。。
-
-
-pygame 2.6.1 (SDL 2.28.4, Python 3.11.0)Hello from the pygame community. https://www.pygame.org/contribute.html[Step 100] Plants: 209, Predators: 11[Step 200] Plants: 223, Predators: 16[Step 300] Plants: 251, Predators: 23[Step 400] Plants: 227, Predators: 31[Step 500] Plants: 185, Predators: 42[Step 600] Plants: 155, Predators: 45[Step 700] Plants: 92, Predators: 54[Step 800] Plants: 73, Predators: 56[Step 900] Plants: 48, Predators: 59[Step 1000] Plants: 34, Predators: 57[Step 1100] Plants: 29, Predators: 56[Step 1200] Plants: 27, Predators: 50[Step 1300] Plants: 27, Predators: 47[Step 1400] Plants: 26, Predators: 35[Step 1500] Plants: 24, Predators: 28--- 过捕猎同步紧缩[Step 1600] Plants: 19, Predators: 20[Step 1700] Plants: 17, Predators: 14[Step 1800] Plants: 15, Predators: 12[Step 1900] Plants: 21, Predators: 8[Step 2000] Plants: 26, Predators: 7[Step 2100] Plants: 26, Predators: 3[Step 2200] Plants: 25, Predators: 3[Step 2300] Plants: 23, Predators: 2--- 捕猎者濒临灭绝[Step 2400] Plants: 21, Predators: 2[Step 2500] Plants: 27, Predators: 2[Step 2600] Plants: 54, Predators: 2[Step 2700] Plants: 75, Predators: 2[Step 2800] Plants: 77, Predators: 1[Step 2900] Plants: 77, Predators: 1[Step 3000] Plants: 70, Predators: 1[Step 3100] Plants: 62, Predators: 1[Step 3200] Plants: 65, Predators: 1[Step 3300] Plants: 135, Predators: 1[Step 3400] Plants: 226, Predators: 1--- 植物复苏[Step 3200] Plants: 65, Predators: 1[Step 3300] Plants: 135, Predators: 1[Step 3400] Plants: 226, Predators: 1[Step 3300] Plants: 135, Predators: 1[Step 3400] Plants: 226, Predators: 1[Step 3400] Plants: 226, Predators: 1[Step 3500] Plants: 259, Predators: 1[Step 3600] Plants: 258, Predators: 2[Step 3700] Plants: 243, Predators: 3[Step 3500] Plants: 259, Predators: 1[Step 3600] Plants: 258, Predators: 2[Step 3500] Plants: 259, Predators: 1[Step 3500] Plants: 259, Predators: 1[Step 3600] Plants: 258, Predators: 2[Step 3700] Plants: 243, Predators: 3[Step 3800] Plants: 198, Predators: 3[Step 3900] Plants: 180, Predators: 3[Step 4000] Plants: 290, Predators: 3[Step 4100] Plants: 391, Predators: 9[Step 4200] Plants: 371, Predators: 23[Step 4300] Plants: 244, Predators: 49[Step 4400] Plants: 69, Predators: 94--- 捕食者爆发[Step 4500] Plants: 14, Predators: 103[Step 4600] Plants: 5, Predators: 102[Step 4700] Plants: 2, Predators: 95[Step 4800] Plants: 0, Predators: 81[Step 4900] Plants: 0, Predators: 53[Step 5000] Plants: 0, Predators: 37[Step 5100] Plants: 0, Predators: 21--- 捕食者灭绝
-
-
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>人工智能</tag>
       </tags>
   </entry>
   <entry>
@@ -320,6 +257,64 @@ hexo clean
         <tag>个人博客</tag>
         <tag>github</tag>
         <tag>waline</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AI辅助实现的小型生态系统</title>
+    <url>/2025/06/29/AI%E8%BE%85%E5%8A%A9%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%B0%8F%E5%9E%8B%E7%94%9F%E6%80%81%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[AI辅助实现的小型生态系统
+设计：每个个体都有自己的行为逻辑，并不共享学习到的内容，但克隆体能够继承被克隆个体所学习到的经验，并且每个个体都有小概率获得突变出新的行为逻辑。克隆体，生成在被克隆体的旁边，并继承被克隆体的行为逻辑。
+
+
+阳光能量：0.05
+
+植物：高生命容易繁衍，但有捕食者的威胁（原定位是绿藻的）个体数量：200生命值：8消耗能量：-0.03获取能量：+0.05克隆能量：25克隆花费：20
+
+捕食者：不容易繁衍但是，高强度捕猎不到猎物容易死亡（留下了的基本都是生存能力强者）个体数量：10生命值：10消耗能量：-0.05捕猎能量：+1.0奖励能量：1克隆能量：30克隆花费：20
+
+我一开始很难想象，居然能有实现 实时训练+实时学习的方法
+
+
+
+
+如果是这样的化，那么我的另一个构想也是理论上能够实现的。。。
+一个通过输入噪声实现的 《生成式认知主体过程》我觉得这个问题能够解释 “我是从哪来的？”这个问题我认为 认知实际上是从“我”的主体上诞生的，所有输入都经过“我”这个主体，因此“我”诞生了
+
+
+
+
+详细的话，等后面的文章再详细阐述，通过思考了很多年我试图吧这些想法写成一篇具体的文章，因此做了一个关于“我的观点”的草稿。。。
+
+代码实现（复盘）俗话说的好（好吧，是我的经验而言）：想要真正的认识到、学习到知识，至少要亲身经历过。。。（代码是AI辅助实现的，我只是提出想法和改进方向，但实用性感觉不怎么样）
+
+定义环境
+
+# 平衡生态系统 v2（捕食者优化 + 感知扩展 + 克隆抑制）import pygameimport numpy as npimport torchimport torch.nn as nnimport torch.nn.functional as Fimport randomfrom copy import deepcopyWIDTH, HEIGHT = 700, 700 # 窗口大小N = 70 # 地图大小CELL_SIZE = WIDTH // Npygame.init() # 初始化pygamescreen = pygame.display.set_mode((WIDTH, HEIGHT))pygame.display.set_caption(&quot;Ecosystem&quot;)x, y = np.linspace(0, N - 1, N), np.linspace(0, N - 1, N) # 生成网格X, Y = np.meshgrid(x, y)cx, sigma, move_speed = N // 2, N / 5, 0.1MOVES = [[1, 0], [-1, 0], [0, 1], [0, -1]] # 移动方向device = torch.device(&#x27;cpu&#x27;) # 设备选择cpu/gpu
+
+
+初始化（定义模型）
+
+# 建立神经网络模型class PolicyNet(nn.Module): # 策略网络    &quot;&quot;&quot;    总的来说就是：输入是当前状态，输出是下一步的动作    分别输入四个动作up、down、left、right，然后通过神经网络进行预测，并返回概率(softmax)最大的动作。    这个神经网络模型的话，属于策略网络，用于预测下一个动作。    算是一个简单的神经网络，输入为4维向量，输出为4维向量，然后通过softmax进行概率归一化，返回概率最大的动作。    &quot;&quot;&quot;    def __init__(self):        super().__init__()        self.fc1 = nn.Linear(9, 32) # 输入9个特征，输出4个动作        self.fc2 = nn.Linear(32, 4) # 隐藏层32个神经元    def forward(self, x):        x = F.relu(self.fc1(x)) # 激活函数        return F.softmax(self.fc2(x), dim=-1) # 输出动作概率    # 创建代理（植物/捕食者）class Agent:    &quot;&quot;&quot;    代理类，继承自nn.Module    &quot;&quot;&quot;    def __init__(self, kind=&#x27;plant&#x27;, parent=None):        &quot;&quot;&quot;        代理初始化        kind: 代理类型        parent: 父代理        &quot;&quot;&quot;        self.kind = kind # 植物/捕食者        self.pos = [np.random.randint(N), np.random.randint(N)] # 随机位置        self.nutrition = 8.0 if kind == &#x27;plant&#x27; else 15.0 # 初始营养        self.alive = True # 代理是否存活        self.model = deepcopy(parent.model) if parent else PolicyNet().to(device) # 从父代理中复制模型，模型为自定义的策略网络模型，输入4个参数，输出4个动作概率        if parent: # 如果有父代理，则进行变异            self.mutate()        self.traj = []    # 代理的决策    def mutate(self):        with torch.no_grad(): # 禁用梯度计算            for param in self.model.parameters():                if random.random() &lt; 0.1: # 随机突变（表象为做出随机行为）                    param.add_(torch.randn_like(param) * 0.03) # 添加一个随机向量    # 代理状态    def get_state(self, agents, nutrition_field):        x, y = self.pos # 获取代理位置        vals = []        for dx in [-1, 0, 1]:            for dy in [-1, 0, 1]:                nx, ny = x + dx, y + dy                if 0 &lt;= nx &lt; N and 0 &lt;= ny &lt; N:                    if self.kind == &#x27;plant&#x27;:                        vals.append(nutrition_field[ny, nx])                    else:                        vals.append(sum(1 for a in agents if a.kind == &#x27;plant&#x27; and a.pos == [nx, ny]))                else:                    vals.append(0)        return torch.tensor(vals, dtype=torch.float32, device=device)        # 获取当前位置的周围格子的信息    def act(self, agents, nutrition_field):        &quot;&quot;&quot;        获取当前位置的周围格子的信息        :param agents: 当前位置的周围格子的信息        :param nutrition_field: 当前位置的周围格子的信息        :return: 当前位置的周围格子的信息        &quot;&quot;&quot;        state = self.get_state(agents, nutrition_field).unsqueeze(0) # 添加一个维度        probs = self.model(state).squeeze(0) # 去掉一个维度        dist = torch.distributions.Categorical(probs) # 创建概率分布        action = dist.sample()        log_prob = dist.log_prob(action)        dx, dy = MOVES[action.item()]        self.pos[0] = max(0, min(N - 1, self.pos[0] + dx))        self.pos[1] = max(0, min(N - 1, self.pos[1] + dy))        self.traj.append(tuple(self.pos))        if len(self.traj) &gt; 10:            self.traj.pop(0)        return log_prob# 网格颜色def field_color(value):    v = max(0, min(value / 10, 1))    return (int(255 * v), int(165 * v), int(255 * (1 - v)))# 获取周围营养def can_clone(agent, agents):    cx, cy = agent.pos # 当前位置    return sum(1 for a in agents if abs(a.pos[0] - cx) &lt;= 1 and abs(a.pos[1] - cy) &lt;= 1) &lt; 6# Agent类在这里被使用，用于创建Agent对象agents = [Agent(&#x27;plant&#x27;) for _ in range(200)] + [Agent(&#x27;predator&#x27;) for _ in range(10)] # 初始化 植物：200/捕食者：10clock = pygame.time.Clock() # 时钟MAX_AGENT = 400 # 最大数量running, steps = True, 0
+
+
+循环主体
+
+while running: # 运行    clock.tick(15)    steps += 1    for event in pygame.event.get(): # 获取事件        if event.type == pygame.QUIT: # 退出            running = False    cx = (cx + move_speed) % N # 捕食者移动    nutrition_field = np.exp(-((X - cx) ** 2 + (Y - cx) ** 2) / (2 * sigma ** 2)) * 10.0 # (辐射)营养源    if steps % 100 == 0: # 每100步        np_, pr_ = sum(a.kind == &#x27;plant&#x27; for a in agents), sum(a.kind == &#x27;predator&#x27; for a in agents) # 统计        print(f&quot;[Step &#123;steps&#125;] Plants: &#123;np_&#125;, Predators: &#123;pr_&#125;&quot;) # 输出    for i in range(N):        for j in range(N):            pygame.draw.rect(screen, field_color(nutrition_field[j, i]),                             pygame.Rect(i * CELL_SIZE, j * CELL_SIZE, CELL_SIZE, CELL_SIZE)) # 画背景    for agent in agents: # 遍历个体        if not agent.alive: # 如果个体已死亡，则跳过            continue        log_prob = agent.act(agents, nutrition_field) # 获取个体的决策概率        reward = 0 # 初始化奖励        if agent.kind == &#x27;plant&#x27;: # 如果是植物            agent.nutrition += nutrition_field[agent.pos[1], agent.pos[0]] * 0.05 # 植物获取的能量为0.05            agent.nutrition -= 0.03 # 植物消耗的能量        else:            agent.nutrition -= 0.03 # 捕食者消耗的能量            prey = next((a for a in agents if a.kind == &#x27;plant&#x27; and a.pos == agent.pos and a.alive), None) # 捕食者吃掉植物            if prey:                prey.alive = False # 植物死亡                agent.nutrition += 5.0 # 捕食者吃掉植物获得5.0点能量                reward += 1.0 # 捕食者吃掉植物奖励1.0分            else:                near = sum(1 for a in agents if a.kind == &#x27;plant&#x27; and abs(a.pos[0]-agent.pos[0])&lt;=2 and abs(a.pos[1]-agent.pos[1])&lt;=2) # 计算附近有多少只植物                reward += 0.1 * near # 捕食者附近的植物奖励0.1分        loss = -log_prob * reward # 计算损失        agent.model.zero_grad() # 清零梯度        loss.backward() # 反向传播        with torch.no_grad(): # 梯度更新            for param in agent.model.parameters(): # 遍历参数                param.data -= 1e-3 * param.grad # 更新参数        if agent.kind == &#x27;plant&#x27; and agent.nutrition &gt;= 25 and can_clone(agent, agents): # 如果是植物且 nutrition &gt;= 25 且可以克隆            agent.nutrition -= 20 # 克隆            agents.append(Agent(&#x27;plant&#x27;, parent=agent))        elif agent.kind == &#x27;predator&#x27; and agent.nutrition &gt;= 30 and can_clone(agent, agents): # 如果是猎物且 nutrition &gt;= 30 且可以克隆            agent.nutrition -= 20            agents.append(Agent(&#x27;predator&#x27;, parent=agent))        if agent.nutrition &lt;= 0: # 如果 nutrition &lt;= 0 则死亡            agent.alive = False    agents = [a for a in agents if a.alive] # 筛选存活的    if len(agents) &gt; MAX_AGENT: # 如果数量超过最大数量则        agents = sorted(agents, key=lambda a: a.nutrition, reverse=True)[:MAX_AGENT] # 按 nutrition 排序    for agent in agents: # 绘制        color = (0, 255, 0) if agent.kind == &#x27;plant&#x27; else (128, 0, 128) # 颜色        for pt in agent.traj:            pygame.draw.circle(screen, (200, 200, 200),                               (pt[0] * CELL_SIZE + CELL_SIZE // 2, pt[1] * CELL_SIZE + CELL_SIZE // 2), 2)        pygame.draw.circle(screen, color,                           (agent.pos[0] * CELL_SIZE + CELL_SIZE // 2, agent.pos[1] * CELL_SIZE + CELL_SIZE // 2),                           CELL_SIZE // 2)    pygame.display.flip() # 刷新屏幕pygame.quit() # 退出游戏
+
+
+运行展示
+不得不说，这个，这也太美了吧。。。难以置信，这些全部都是靠涌现出来的。。。
+
+
+pygame 2.6.1 (SDL 2.28.4, Python 3.11.0)Hello from the pygame community. https://www.pygame.org/contribute.html[Step 100] Plants: 209, Predators: 11[Step 200] Plants: 223, Predators: 16[Step 300] Plants: 251, Predators: 23[Step 400] Plants: 227, Predators: 31[Step 500] Plants: 185, Predators: 42[Step 600] Plants: 155, Predators: 45[Step 700] Plants: 92, Predators: 54[Step 800] Plants: 73, Predators: 56[Step 900] Plants: 48, Predators: 59[Step 1000] Plants: 34, Predators: 57[Step 1100] Plants: 29, Predators: 56[Step 1200] Plants: 27, Predators: 50[Step 1300] Plants: 27, Predators: 47[Step 1400] Plants: 26, Predators: 35[Step 1500] Plants: 24, Predators: 28--- 过捕猎同步紧缩[Step 1600] Plants: 19, Predators: 20[Step 1700] Plants: 17, Predators: 14[Step 1800] Plants: 15, Predators: 12[Step 1900] Plants: 21, Predators: 8[Step 2000] Plants: 26, Predators: 7[Step 2100] Plants: 26, Predators: 3[Step 2200] Plants: 25, Predators: 3[Step 2300] Plants: 23, Predators: 2--- 捕猎者濒临灭绝[Step 2400] Plants: 21, Predators: 2[Step 2500] Plants: 27, Predators: 2[Step 2600] Plants: 54, Predators: 2[Step 2700] Plants: 75, Predators: 2[Step 2800] Plants: 77, Predators: 1[Step 2900] Plants: 77, Predators: 1[Step 3000] Plants: 70, Predators: 1[Step 3100] Plants: 62, Predators: 1[Step 3200] Plants: 65, Predators: 1[Step 3300] Plants: 135, Predators: 1[Step 3400] Plants: 226, Predators: 1--- 植物复苏[Step 3200] Plants: 65, Predators: 1[Step 3300] Plants: 135, Predators: 1[Step 3400] Plants: 226, Predators: 1[Step 3300] Plants: 135, Predators: 1[Step 3400] Plants: 226, Predators: 1[Step 3400] Plants: 226, Predators: 1[Step 3500] Plants: 259, Predators: 1[Step 3600] Plants: 258, Predators: 2[Step 3700] Plants: 243, Predators: 3[Step 3500] Plants: 259, Predators: 1[Step 3600] Plants: 258, Predators: 2[Step 3500] Plants: 259, Predators: 1[Step 3500] Plants: 259, Predators: 1[Step 3600] Plants: 258, Predators: 2[Step 3700] Plants: 243, Predators: 3[Step 3800] Plants: 198, Predators: 3[Step 3900] Plants: 180, Predators: 3[Step 4000] Plants: 290, Predators: 3[Step 4100] Plants: 391, Predators: 9[Step 4200] Plants: 371, Predators: 23[Step 4300] Plants: 244, Predators: 49[Step 4400] Plants: 69, Predators: 94--- 捕食者爆发[Step 4500] Plants: 14, Predators: 103[Step 4600] Plants: 5, Predators: 102[Step 4700] Plants: 2, Predators: 95[Step 4800] Plants: 0, Predators: 81[Step 4900] Plants: 0, Predators: 53[Step 5000] Plants: 0, Predators: 37[Step 5100] Plants: 0, Predators: 21--- 捕食者灭绝
+
+
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>人工智能</tag>
       </tags>
   </entry>
   <entry>
@@ -478,8 +473,31 @@ MarkText：开源 Markdown 编辑器
       </tags>
   </entry>
   <entry>
+    <title>7/29 认知探索</title>
+    <url>/2025/07/29/7-29-%E8%AE%A4%E7%9F%A5%E6%8E%A2%E7%B4%A2/</url>
+    <content><![CDATA[没什么好说的。。。
+
+
+
+
+附录：
+]]></content>
+      <categories>
+        <category>认知探索</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>网站加载缓慢和CDN加速</title>
+    <url>/2025/06/17/test/</url>
+    <content><![CDATA[这是一个测试
+]]></content>
+      <tags>
+        <tag>日常</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一个刚大一的普通大学生</title>
-    <url>/2025/05/01/hello-world/</url>
+    <url>/2025/05/01/%E4%B8%80%E4%B8%AA%E5%88%9A%E5%A4%A7%E4%B8%80%E7%9A%84%E6%99%AE%E9%80%9A%E5%A4%A7%E5%AD%A6%E7%94%9F/</url>
     <content><![CDATA[关于我一名正在山东上大学的普通大学生（虽然说是在上海成长的。。。）
 在多次了解到个人网站领域的信息后，出于兴趣搭起来的这个网站，希望通过不断的更新这个网站给现实的自己一个坐标，记录生活，想法，以及一些遇到技术性问题
 同时在不断的被现实和理想撕扯后，这几年不段的深入精神邻域让我感觉整个人有点空了，像是在水中不断沉溺的感觉一样
@@ -507,15 +525,6 @@ Transformer架构、大语言模型(LLM)
       <categories>
         <category>生活</category>
       </categories>
-  </entry>
-  <entry>
-    <title>网站加载缓慢和CDN加速</title>
-    <url>/2025/06/17/test/</url>
-    <content><![CDATA[这是一个测试
-]]></content>
-      <tags>
-        <tag>日常</tag>
-      </tags>
   </entry>
   <entry>
     <title>丝滑的Hexo工作流</title>
@@ -583,21 +592,6 @@ Umami 统计帮你直观掌握站点动态。
       </tags>
   </entry>
   <entry>
-    <title>亲子关系与责任</title>
-    <url>/2025/07/15/%E4%BA%B2%E5%AD%90%E5%85%B3%E7%B3%BB%E4%B8%8E%E8%B4%A3%E4%BB%BB/</url>
-    <content><![CDATA[这是我沉的最深的一次，也是最清晰的一次，说实话我不太希望别人看见但我觉得自己的博客应该不会有别人看（或者说是，没些本事的人根本到不了这里，能到这里的都是些已经建立和稳固过属于自己的世界观和价值观的人，因此 嗯。。。，不管了我是写给自己看的）完整的看完可能需要1个多小时，建议劝退
-
-
-
-]]></content>
-      <categories>
-        <category>认知探索</category>
-      </categories>
-      <tags>
-        <tag>AI</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>个人计算机使用观</title>
     <url>/2025/08/08/%E4%B8%AA%E4%BA%BA%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%BF%E7%94%A8%E8%A7%82/</url>
     <content><![CDATA[
@@ -612,18 +606,6 @@ Umami 统计帮你直观掌握站点动态。
       <tags>
         <tag>计算机</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>土豆佬ba漫画日文完整</title>
-    <url>/2025/08/08/%E5%9C%9F%E8%B1%86%E4%BD%ACba%E6%BC%AB%E7%94%BB%E5%AE%8C%E6%95%B4%E8%B5%84%E6%BA%90/</url>
-    <content><![CDATA[
-python爬虫实现（觉得超级好看，但放桌面占地方，因此不如放到网络上），仅分享，侵权删
-还有就是，我打算把所有资源都放到网盘里方便下载，因此现在先暂时建了链接，所有分享都放在了里面，有需要的可以下载
-通过网盘分享的文件：资源链接: https://pan.baidu.com/s/1wjhW5fO9krha4--2OhjiVg?pwd=28em 提取码: 28em
-]]></content>
-      <categories>
-        <category>资源</category>
-      </categories>
   </entry>
   <entry>
     <title>入口</title>
@@ -650,6 +632,21 @@ XX进入了入口，但很快就杳无音讯了
       <tags>
         <tag>生活</tag>
         <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>亲子关系与责任</title>
+    <url>/2025/07/15/%E4%BA%B2%E5%AD%90%E5%85%B3%E7%B3%BB%E4%B8%8E%E8%B4%A3%E4%BB%BB/</url>
+    <content><![CDATA[这是我沉的最深的一次，也是最清晰的一次，说实话我不太希望别人看见但我觉得自己的博客应该不会有别人看（或者说是，没些本事的人根本到不了这里，能到这里的都是些已经建立和稳固过属于自己的世界观和价值观的人，因此 嗯。。。，不管了我是写给自己看的）完整的看完可能需要1个多小时，建议劝退
+
+
+
+]]></content>
+      <categories>
+        <category>认知探索</category>
+      </categories>
+      <tags>
+        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
@@ -818,6 +815,18 @@ Mel Bartels’ Telescope Making
       </tags>
   </entry>
   <entry>
+    <title>土豆佬ba漫画日文完整</title>
+    <url>/2025/08/08/%E5%9C%9F%E8%B1%86%E4%BD%ACba%E6%BC%AB%E7%94%BB%E5%AE%8C%E6%95%B4%E8%B5%84%E6%BA%90/</url>
+    <content><![CDATA[
+python爬虫实现（觉得超级好看，但放桌面占地方，因此不如放到网络上），仅分享，侵权删
+还有就是，我打算把所有资源都放到网盘里方便下载，因此现在先暂时建了链接，所有分享都放在了里面，有需要的可以下载
+通过网盘分享的文件：资源链接: https://pan.baidu.com/s/1wjhW5fO9krha4--2OhjiVg?pwd=28em 提取码: 28em
+]]></content>
+      <categories>
+        <category>资源</category>
+      </categories>
+  </entry>
+  <entry>
     <title>好无聊</title>
     <url>/2025/07/08/%E5%A5%BD%E6%97%A0%E8%81%8A/</url>
     <content><![CDATA[好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊失败了失败了失败了失败了失败了（打工战士乱入）失败了我失败了我失败了我失败了我失败了好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊好无聊
@@ -854,20 +863,6 @@ Key社游戏 夏日口袋攻略：https://www.bilibili.com/opus/8248501101416940
 ]]></content>
       <categories>
         <category>闲聊</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>每日/周话题</title>
-    <url>/2025/06/29/%E6%AF%8F%E6%97%A5%E8%AF%9D%E9%A2%98/</url>
-    <content><![CDATA[因为一些考量，临时建立这个频道，先试试水
-
-小提示：感到无事可做时不妨四处走走，说不定会遇上意外事件哦！
-7&#x2F;15记几个最近在意的事情（没有动力去做）
-业余无线电证书去青岛旅游（想看看大海、海滩、岛屿）组装电磁脉冲器把买的股票尽快脱手关于自己在网络上的数据，最近需要清理下
-暂时就这些吧。。。其他的。。。嗯。。。算了。。。不管了
-]]></content>
-      <categories>
-        <category>每日话题</category>
       </categories>
   </entry>
   <entry>
@@ -975,6 +970,20 @@ A Beginner’s Guide to using MCP in Windsurf!
         <tag>小智AI</tag>
         <tag>MCP</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>每日/周话题</title>
+    <url>/2025/06/29/%E6%AF%8F%E6%97%A5%E8%AF%9D%E9%A2%98/</url>
+    <content><![CDATA[因为一些考量，临时建立这个频道，先试试水
+
+小提示：感到无事可做时不妨四处走走，说不定会遇上意外事件哦！
+7&#x2F;15记几个最近在意的事情（没有动力去做）
+业余无线电证书去青岛旅游（想看看大海、海滩、岛屿）组装电磁脉冲器把买的股票尽快脱手关于自己在网络上的数据，最近需要清理下
+暂时就这些吧。。。其他的。。。嗯。。。算了。。。不管了
+]]></content>
+      <categories>
+        <category>每日话题</category>
+      </categories>
   </entry>
   <entry>
     <title>编曲学习记录备份（个人向）</title>
